@@ -5,8 +5,8 @@ pipeline {
         pollSCM('* * * * *')
     }
     parameters {
-        string(name: 'BRANCH', defaultValue: 'master', description: 'Branch to build' )
-        choice(name: 'GOAL', choices: ['package', 'clean package', 'install'], defaultValue: 'clean package', description: 'maven goals')
+        string(name: 'BRANCH', defaultValue: 'qa', description: 'Branch to build' )
+        // choice(name: 'GOAL', choices: ['package', 'clean package', 'install'], defaultValue: 'clean package', description: 'maven goals')
     }
     options {
         timeout(time: 1, unit: 'HOURS')
@@ -16,7 +16,7 @@ pipeline {
     //     CI_ENV = 'DEV'
     // }
     stages {
-        stage('1.scm') {
+        stage('scm') {
             // environment {
             //     DUMMY = 'FUN'
             // }
@@ -28,7 +28,7 @@ pipeline {
                 // echo env.DUMMY
             }
         }
-        stage('2.build') {
+        stage('build') {
             steps {
                 // echo env.GIT_URL
                 timeout(time:10, unit: 'MINUTES') {
