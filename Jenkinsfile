@@ -20,8 +20,7 @@ pipeline {
             steps {
                 mail subject: 'BUILD Started '+env.BUILD_ID, to: 'devops@nk.com', from: 'jenkins@nk.com', body: 'The status can be viewed by clicking on below link "http://15.206.189.145:8080/" '
                 git branch: "${params.BRANCH}", url: 'https://github.com/asquarezone/game-of-life.git'
-                //input message: 'Continue to next stage? ', submitter: 'qtaws,qtazure'
-               
+                //input message: 'Continue to next stage? ', submitter: 'qtaws,qtazure'   
             }
         }
         stage('build') {
