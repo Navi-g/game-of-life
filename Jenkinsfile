@@ -7,7 +7,7 @@ pipeline {
     parameters {
         string(name: 'BRANCH', defaultValue: 'qa', description: 'Branch to build' )
         choice(name: 'GOAL', choices: ['package', 'clean package', 'install'], defaultValue: 'clean package', description: 'maven goals')
-    // }
+     }
     // options {
     //     timeout(time: 1, unit: 'HOURS')
     //     retry(2)
