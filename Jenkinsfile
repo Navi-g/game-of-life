@@ -5,8 +5,8 @@ pipeline {
         pollSCM('* * * * *')
     }
     parameters {
-        string(name: 'BRANCH', defaultValue: 'master', description: 'Branch to build' )
-        choice(name: 'GOAL', choices: ['package', 'clean package', 'install'], description: 'maven goals')
+        string(name: 'BRANCH', defaultValue: 'Navi', description: 'Branch to build' )
+        // choice(name: 'GOAL', choices: ['package', 'clean package', 'install'], description: 'maven goals')
     }
     options {
         timeout(time: 1, unit: 'HOURS')
