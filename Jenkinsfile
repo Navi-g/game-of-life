@@ -4,9 +4,9 @@ pipeline {
         cron('H * * * *')
         pollSCM('* * * * *')
     }
-    // parameters {
-    //     string(name: 'BRANCH', defaultValue: 'qa', description: 'Branch to build' )
-    //     // choice(name: 'GOAL', choices: ['package', 'clean package', 'install'], defaultValue: 'clean package', description: 'maven goals')
+    parameters {
+        string(name: 'BRANCH', defaultValue: 'qa', description: 'Branch to build' )
+        choice(name: 'GOAL', choices: ['package', 'clean package', 'install'], defaultValue: 'clean package', description: 'maven goals')
     // }
     // options {
     //     timeout(time: 1, unit: 'HOURS')
@@ -22,7 +22,7 @@ pipeline {
             // }
             steps {
                 mail subject: 'BUILD Started '+env.BUILD_ID, to: 'devops@qt.com', from: 'jenkins@qt.com', body: 'EMPTY BODY'
-                git branch: "qa", url: 'https://github.com/Navi-g/game-of-life.git'
+                git branch: "${params.BRANCH}", url: 'https://github.com/Navi-g/game-of-life.git'
                 //input message: 'Continue to next stage? ', submitter: 'qtaws,qtazure'
                 // echo env.CI_ENV
                 // echo env.DUMMY
@@ -32,7 +32,7 @@ pipeline {
             steps {
                 // echo env.GIT_URL
                 timeout(time:10, unit: 'MINUTES') {
-                    sh "mvn clean package"
+                    sh "mvn ${params.GOAL}"
                 }
                 // stash includes: '**/gameoflife.war', name: 'golwar'
             }
