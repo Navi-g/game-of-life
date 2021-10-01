@@ -12,7 +12,7 @@ pipeline {
     //     timeout(time: 1, unit: 'HOURS')
     //     retry(2)
     // }
-    // environment {
+    // environment { 1,
     //     CI_ENV = 'DEV'
     // }
     stages {
