@@ -34,15 +34,15 @@ pipeline {
                 timeout(time:10, unit: 'MINUTES') {
                     sh "mvn ${params.GOAL}"
                 }
-                stash includes: '**/gameoflife.war', name: 'golwar'
+//                 stash includes: '**/gameoflife.war', name: 'golwar'
             }
         }
-        stage('devserver'){
-            agent { label 'UBN'}
-            steps {
-                unstash name: 'golwar'
-            }
-        }
+//         stage('devserver'){
+//             agent { label 'UBN'}
+//             steps {
+//                 unstash name: 'golwar'
+//             }
+//         }
     }
     post {
         success {
