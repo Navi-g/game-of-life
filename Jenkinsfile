@@ -38,7 +38,7 @@ pipeline {
             }
         }
         stage('devserver'){
-            agent { label 'UBN,'}
+            agent { label 'UBN'}
             steps {
                 unstash name: 'golwar'
             }
