@@ -12,20 +12,20 @@ pipeline {
         timeout(time: 1, unit: 'HOURS')
         retry(2)
     }
-    environment {
-        CI_ENV = 'DEV'
-    }
+//     environment {
+//         CI_ENV = 'DEV'
+//     }
     stages {
         stage('scm') {
-            environment {
-                DUMMY = 'FUN'
-            }
+//             environment {
+//                 DUMMY = 'FUN'
+//             }
             steps {
                 mail subject: 'BUILD Started '+env.BUILD_ID, to: 'devops@nk.com', from: 'jenkins@nk.com', body: 'EMPTY BODY'
                 git branch: "${params.BRANCH}", url: 'https://github.com/Navi-g/game-of-life.git'
                 //input message: 'Continue to next stage? ', submitter: 'qtaws,qtazure'
-                echo env.CI_ENV
-                echo env.DUMMY
+//                 echo env.CI_ENV
+//                 echo env.DUMMY
             }
         }
         stage('build') {
@@ -43,7 +43,7 @@ pipeline {
 //                 unstash name: 'golwar'
 //             }
 //         }
-    }
+//     }
     post {
         success {
             archive '**/gameoflife.war'
@@ -65,4 +65,4 @@ pipeline {
         }
     }
 }
-changed
+
