@@ -61,8 +61,7 @@ pipeline {
         }
         unstable {
             mail subject: 'BUILD Unstable '+env.BUILD_ID+'URL is '+env.BUILD_URL, to: 'devops@nk.com', from: 'jenkins@nk.com', body: 'EMPTY BODY'
-
+        }
         }
     }
-}
 }
