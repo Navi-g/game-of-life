@@ -1,5 +1,5 @@
 // pipeline {
-//     agent { label 'GOL'}
+//     agent { label 'UBN'}
 //     triggers {
 //         cron('H * * * *')
 //         pollSCM('* * * * *')
@@ -38,7 +38,7 @@
 //             }
 //         }
 //         stage('devserver'){
-//             agent { label 'RHEL,'}
+//             agent { label 'UBN,'}
 //             steps {
 //                 unstash name: 'golwar'
 //             }
